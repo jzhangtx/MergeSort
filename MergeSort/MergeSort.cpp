@@ -48,6 +48,27 @@ void MergeSort(std::vector<int>& arr)
 
 int main()
 {
-    std::vector<int> vec{ 5, 4, 2, 5, 3, 1 };
-    MergeSort(vec);
+    while (true)
+    {
+        int count = 0;
+        std::cout << "Number of elements in the array: ";
+        std::cin >> count;
+        if (count == 0)
+            break;
+
+        std::vector<int> vec(count);
+        std::cout << "The number array: ";
+        for (int i = 0; i < count; ++i)
+            std::cin >> vec[i];
+
+        MergeSort(vec);
+        std::cout << "Sorted:" << std::endl;
+        for (auto i = vec.cbegin(); i != vec.cend(); ++i)
+        {
+            if (i != vec.cbegin())
+                std::cout << ", ";
+            std::cout << *i;
+        }
+        std::cout << std::endl;
+    }
 }
